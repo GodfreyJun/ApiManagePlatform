@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--导入SpringMVC
+    <import resource="dispatcher-servlet.xml"/>-->
+
+    <!--导入配置文件-->
+    <context:property-placeholder location="classpath:resources.properties" />
+
+    <bean name="userService" class="org.huawei.singleLogin.UserService"/>
+    <bean id="calendar" class="java.util.Calendar" factory-method="getInstance"/>
+    <!--
+    <bean id="casRealm" class="org.huawei.singleLogin.MyCasRealm">
+        <property name="userService" ref="userService"/>
+        <property name="cachingEnabled" value="true"/>
+        <property name="authenticationCachingEnabled" value="true"/>
+        <property name="authenticationCacheName" value="authenticationCache"/>
+        <property name="authorizationCachingEnabled" value="true"/>
+        <property name="authorizationCacheName" value="authorizationCache"/>-->
+        <!--该地址为cas server地址 -->
+        <!--<property name="casServerUrlPrefix" value="${shiro.casServer.url}"/>-->
+        <!-- 该地址为是当前应用 CAS 服务 URL，即用于接收并处理登录成功后的 Ticket 的，
+        必须和loginUrl中的service参数保持一致，否则服务器会判断service不匹配-->
+        <!--<property name="casService" value="${shiro.client.cas}"/>
+    </bean>
+    <bean id="casFilter" class="org.apache.shiro.cas.CasFilter">
+        <property name="failureUrl" value="/casFailure.jsp"/>
+    </bean>-->
+
+
+    <!--<import resource="spring-shiro-web-SessionsSecurityManager.xml"/>-->
+</beans>
